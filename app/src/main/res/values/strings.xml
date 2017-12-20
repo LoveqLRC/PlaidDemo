@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PlaidDemo</string>
+    <!-- main screen -->
+    <string name="search">Search</string>
+    <!-- app shortcuts -->
+    <string name="shortcut_search_short_label">@string/search</string>
+    <string name="shortcut_search_long_label">@string/search</string>
+    <string name="shortcut_search_disabled">Search not available</string>
+</resources>

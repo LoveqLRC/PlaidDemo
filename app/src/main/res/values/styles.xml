@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Plaid" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:navigationBarColor">@color/background_super_dark</item>
+        <item name="android:statusBarColor">@color/background_super_dark</item>
+        <!--hint文字颜色(例如:TextView 或EditText当内容为空时，显示hint的文字颜色)-->
+        <item name="android:textColorHint">@color/hint_disabled_dark</item>
+
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="android:windowBackground">@color/background_light</item>
+
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowSharedElementsUseOverlay">false</item>
+        <item name="android:colorEdgeEffect">@color/mid_grey</item>
+        <!--这是自定义属性，需要xml配置对应format-->
+        <item name="collapsingTitleLayoutStyle">@style/Widget.Plaid.CollapsingTitle</item>
+    </style>
+
+    <style name="Plaid.Home">
+
+    </style>
+
+    <style name="Widget.Plaid" parent="android:Widget"/>
+
+    <style name="Widget.Plaid.CollapsingTitle">
+        <item name="android:textAppearance">@style/TextAppearance.ToolbarTitle</item>
+        <item name="lineHeightHint">28sp</item>
+        <item name="maxExpandedTextSize">@dimen/display_4_text_size</item>
+        <item name="titleInsetStart">@dimen/keyline_1</item>
+        <item name="titleInsetTop">@dimen/padding_normal</item>
+        <item name="titleInsetEnd">@dimen/padding_normal</item>
+        <item name="titleInsetBottom">@dimen/padding_normal</item>
+        <item name="android:maxLines">5</item>
+    </style>
+
+
+    <style name="TextAppearance.ToolbarTitle" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/text_primary_light</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+    </style>
+
+
+</resources>
