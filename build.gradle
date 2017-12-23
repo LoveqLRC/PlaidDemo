@@ -2,6 +2,16 @@
 
 buildscript {
     ext.kotlin_version = '1.2.10'
+    ext.versions = [
+            'compileSdk'    : 27,
+            'targetSdk'     : 27,
+            'buildTools'    : '27.0.1',
+            'butterknife'   : '8.8.1',
+            'glide'         : '4.3.0',
+            'kotlin'        : '1.1.60',
+            'retrofit'      : '2.3.0',
+            'supportLibrary': '27.0.1'
+    ]
     repositories {
         google()
         jcenter()

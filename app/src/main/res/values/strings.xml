@@ -6,4 +6,10 @@
     <string name="shortcut_search_short_label">@string/search</string>
     <string name="shortcut_search_long_label">@string/search</string>
     <string name="shortcut_search_disabled">Search not available</string>
+
+    <string name="no_filters_selected">No filters selected, press the filter button above (&#2228;)\nor swipe from the&#160;right</string>
+
+    <!-- transition shared elements -->
+    <string name="transition_shot" translatable="false">shot</string>
+    <string name="transition_shot_background" translatable="false">shot_background</string>
 </resources>
