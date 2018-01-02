@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +15,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.ListPreloader;
 import com.bumptech.glide.RequestBuilder;
@@ -24,16 +27,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import loveq.rc.plaiddemo.R;
 import loveq.rc.plaiddemo.data.DataLoadingSubject;
 import loveq.rc.plaiddemo.data.PlaidItem;
 import loveq.rc.plaiddemo.data.PlaidItemSorting;
 import loveq.rc.plaiddemo.data.api.designernews.StoryWeigher;
+import loveq.rc.plaiddemo.data.api.designernews.model.Story;
 import loveq.rc.plaiddemo.data.api.dribbble.ShotWeigher;
 import loveq.rc.plaiddemo.data.api.dribbble.model.Shot;
 import loveq.rc.plaiddemo.data.api.producthunt.PostWeigher;
 import loveq.rc.plaiddemo.ui.recyclerview.Divided;
+import loveq.rc.plaiddemo.ui.widget.BaselineGridTextView;
+import loveq.rc.plaiddemo.util.customtabs.CustomTabActivityHelper;
 
 
 /**
@@ -138,7 +145,26 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private RecyclerView.ViewHolder createDesignerNewsStoryHolder(ViewGroup parent) {
         final DesignerNewsStoryHolder holder = new DesignerNewsStoryHolder(layoutInflater.inflate(
                 R.layout.designer_news_story_item, parent, false), pocketIsInstalled);
-        return null;
+        holder.itemView.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        final Story story = (Story) getItem(holder.getAdapterPosition());
+                        CustomTabActivityHelper.openCustomTab(host,
+                                DesignerNewsStory.getCustomTabIntent(host, story, null).build(),
+                                Uri.parse(story.url));
+                    }
+                }
+        );
+
+        holder.comments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        return holder;
     }
 
 
@@ -154,17 +180,17 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     static class DesignerNewsStoryHolder extends RecyclerView.ViewHolder implements Divided {
 
-//        @BindView(R.id.story_title)
-//        BaselineGridTextView title;
-//        @BindView(R.id.story_comments)
-//        TextView comments;
-//        @BindView(R.id.pocket)
-//        ImageButton pocket;
+        @BindView(R.id.story_title)
+        BaselineGridTextView title;
+        @BindView(R.id.story_comments)
+        TextView comments;
+        @BindView(R.id.pocket)
+        ImageButton pocket;
 
         DesignerNewsStoryHolder(View itemView, boolean pocketIsInstalled) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-//            pocket.setVisibility(pocketIsInstalled ? View.VISIBLE : View.GONE);
+            pocket.setVisibility(pocketIsInstalled ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -216,5 +242,11 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public RequestBuilder getPreloadRequestBuilder(Shot item) {
         return null;
+    }
+
+
+    private PlaidItem getItem(int position) {
+        if (position < 0 || position >= items.size()) return null;
+        return items.get(position);
     }
 }

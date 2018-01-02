@@ -24,6 +24,7 @@
     <color name="designer_news">#03a9f4</color>
     <color name="text_secondary_dark">#8a000000</color>
     <color name="background_dark">#ff333333</color>
+    <color name="light_icon">#ffffffff</color>
     <array name="loading_placeholders_dark">
         <item>#ff191919</item>
         <item>#ff212121</item>

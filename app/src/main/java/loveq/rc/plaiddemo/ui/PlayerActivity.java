@@ -1,4 +1,4 @@
-package loveq.rc.plaiddemo.ui.transitions;
+package loveq.rc.plaiddemo.ui;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -31,6 +31,7 @@ public class HomeActivity extends Activity {
             animateToolbar();
         }
 
+
         setExitSharedElementCallback(FeedAdapter.createSharedElementReenterCallback(this));
 
     }

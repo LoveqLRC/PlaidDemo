@@ -12,5 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var findViewById = findViewById<LinearLayout>(R.id.ll_test)
         findViewById.setOnClickListener { Toast.makeText(this, "helllo", Toast.LENGTH_SHORT).show() }
+
     }
 }

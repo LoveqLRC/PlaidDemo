@@ -12,11 +12,6 @@
         android:theme="@style/Plaid">
         <activity android:name=".MainActivity">
         </activity>
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Plaid.Home">
-        </activity>
         <!--
 为了避免更换启动页面，而导致桌面的shortcuts消失，这里使用activity-alias，
         但是有一点值得注意的是必须定义在targetActivity之后
@@ -36,10 +31,22 @@
                 android:resource="@xml/shortcuts"/>
         </activity-alias>
 
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Plaid.Home">
+        </activity>
         <activity android:name=".ui.SearchActivity">
         </activity>
-        <activity android:name=".ui.transitions.PlayerActivity">
+        <activity android:name=".ui.PlayerActivity">
         </activity>
+        <activity android:name=".ui.DesignerNewsStory">
+        </activity>
+
+        <service
+            android:name=".data.api.designernews.UpvoteStoryService"
+            android:exported="false">
+        </service>
     </application>
 
 </manifest>

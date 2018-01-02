@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import in.uncod.android.bypass.style.TouchableUrlSpan;
-import loveq.rc.plaiddemo.ui.transitions.PlayerActivity;
+import loveq.rc.plaiddemo.ui.PlayerActivity;
 
 /**
  * Created by rc on 2017/12/22.
